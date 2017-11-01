@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>fileuploader</title>
+  <meta charset="utf8">
+<link rel="stylesheet" href="js/jquery.fileuploader.css">
+</head>
+<body>
+  <div id="fileuploader-cont">   
+      <ul id="ulImglist">          
+      </ul>
+      <div id="divDropZone">Drag and drop files</div>  
+      <input style="display: none; visibility: hidden;" type="file" name="file" id="fileInput" value="111" multiple="true" />       
+      <a id="uploadButton" href="#">upload</a>     
+      <input type="hidden" id="mainPictureName">  
+  </div>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script src="js/jquery.fileuploader.js"></script>
+  <script>
+   $( document ).ready(function() {
+    $('#fileuploader-cont').fileuploader({maxCountFiles:4,addToMainLink:true});
+});
+   
+      
+   
+  </script>
+</body>
+</html>
