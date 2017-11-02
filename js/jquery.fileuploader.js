@@ -21,7 +21,6 @@
     var methods = {
         init: function (options) {
             return this.each(function () {
-
                 var config = $.extend(true, {}, defaults, options);
                 var countImg = 0,
                     container = $(this),
@@ -35,12 +34,14 @@
                     if(config.addErrorBlock){
                         fileInput.after('<div class="errors-container"><p class="'+config.limitImgErrorClass+'">'+config.maxFileSizeMes+'</p><p class="'+config.limitCountErrorClass+'">'+config.maxCountFilesMes+'</p></div>')
                     }
-
+                
+                //add listenr for upload button    
                 uploadButton.on('click', function (e) {
                     e.preventDefault();
                     fileInput.click();
                 });
 
+                //bind fileinput listener
                 fileInput.bind({
                     change: function () {
                         if (typeof (GetFiles) === "function") {
@@ -51,6 +52,7 @@
                     }
                 });
 
+                //dropZone
                 if (typeof (dropZone) === "undefined") {
                     alert('Define divDropZone area failed!');
                 }
@@ -207,6 +209,7 @@
 
 
                 //validators
+                //file size validatr
                  function FilesSizeValidate(files) {
                     var freePlaces = config.maxCountFiles - config.fileList.length;
                     config.fileListAdd = [];
@@ -269,6 +272,7 @@
                     return false;
                 }
 
+                //check added file
                 function isContainsFile(arr, file) {  
                     var res=false;                                      
                     $.each(arr,
