@@ -246,11 +246,12 @@
                     //end remove it from entered (given to function) file list
                     $.each(files, function (index, file) {
                         tmpFiles.push(file);
-                        parts = file.type.split('/');
-                        if (config.filesExt.join().search(parts[parts.length - 1]) == -1 || (parts.length == 1 && parts[0] == '') /*couldn't determine the type*/ ) {
+                        var ext = file.name.split(".").pop();
+                        parts = file.type.split('/');                       
+                        if (config.filesExt.join().search(ext) == -1 || (parts.length == 1 && parts[0] == '') /*couldn't determine the type*/) {
                             tmpFiles.splice($.inArray(file, tmpFiles), 1);
                         }
-                    });                   
+                    });                    
                     config.inputFileList = tmpFiles;
                 }
 
